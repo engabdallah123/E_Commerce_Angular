@@ -23,7 +23,7 @@ It provides the core features of an online store such as product browsing, filte
   - Save favorite products for later.
 - **Orders**
   - Place new orders.
-  - Track order status: `Pending → Processing → Shipped → Delivered → Cancelled`.
+  - Track order status: `Just Pending → Processing`.
 
 ---
 
@@ -45,10 +45,10 @@ It provides the core features of an online store such as product browsing, filte
 
 ## 🧰 Tech Stack
 - **Frontend:** Angular, TypeScript, RxJS  
-- **UI Framework:** Angular Material / Bootstrap / SCSS  
+- **UI Framework:** Angular Material / Bootstrap / CSS  
 - **State Management:** NgRx (or Angular Services)  
 - **Backend API:** ASP.NET Core Web API (or any RESTful API)  
-- **Database:** SQL Server / MySQL (via backend)  
+- **Database:** SQL Server  
 
 ---
 
@@ -62,7 +62,7 @@ A detailed demo and walkthrough of the project is available on LinkedIn:
 ## 🔗 Backend API
 
 The Angular frontend connects to the backend API here:  
-[Backend Repository / API Link](YOUR_BACKEND_REPO_LINK)
+[Backend Repository / API Link](https://github.com/engabdallah123/ECommerce-API)
 
 
 ## 🚀 Installation
@@ -85,7 +85,7 @@ ng serve -o
 ```ts
 export const environment = {
   production: false,
-  apiUrl: 'https://your-backend-link.com/api'
+  apiUrl: 'http://localhost:5104/api'
 };
 
 
