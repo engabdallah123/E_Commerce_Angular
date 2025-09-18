@@ -55,7 +55,8 @@ It provides the core features of an online store such as product browsing, filte
 ## 🎥 Demo Video
 
 A detailed demo and walkthrough of the project is available on LinkedIn:
-🔗 [Watch the video]()
+🔗 [Watch the video](https://www.linkedin.com/posts/abdallah-ebrahim-5038272b6_angular-dotnet-webdevelopment-ugcPost-7374455060266725376-35lQ)
+
 
 ---
 
