@@ -1,59 +1,93 @@
-# Ecommerce
+# 🛒 E-Commerce Angular Project
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+This project is an **E-Commerce Web Application** built with **Angular**.  
+It provides the core features of an online store such as product browsing, filtering, cart, wishlist, order management, and an **Admin Dashboard**.
 
-## Development server
+---
 
-To start a local development server, run:
+## ✨ Features
+
+### 👤 Customer Side
+- **Products**
+  - Browse all products.
+  - Product details (images, description, price, etc.).
+- **Categories**
+  - Browse products by category.
+- **Filter & Pagination**
+  - Filter products by price, category, or search query.
+  - Paginated product list for better navigation.
+- **Cart**
+  - Add products to shopping cart.
+  - Update quantity or remove items.
+- **Wishlist**
+  - Save favorite products for later.
+- **Orders**
+  - Place new orders.
+  - Track order status: `Pending → Processing → Shipped → Delivered → Cancelled`.
+
+---
+
+### 🛠️ Admin Dashboard
+- **Products Management**
+  - Add / Edit / Delete products.
+  - Manage product categories.
+- **Users Management**
+  - Manage users (edit / block / delete).
+- **Orders Dashboard**
+  - View all orders from customers.
+  - Update order status.
+- **Messages**
+  - Receive messages/feedback from customers.
+- **(Optional) Statistics**
+  - Display analytics about sales and orders.
+
+---
+
+## 🧰 Tech Stack
+- **Frontend:** Angular, TypeScript, RxJS  
+- **UI Framework:** Angular Material / Bootstrap / SCSS  
+- **State Management:** NgRx (or Angular Services)  
+- **Backend API:** ASP.NET Core Web API (or any RESTful API)  
+- **Database:** SQL Server / MySQL (via backend)  
+
+---
+
+## 🎥 Demo Video
+
+A detailed demo and walkthrough of the project is available on LinkedIn:
+🔗 Watch the video
+
+---
+
+## 🔗 Backend API
+
+The Angular frontend connects to the backend API here:  
+[Backend Repository / API Link](YOUR_BACKEND_REPO_LINK)
+
+
+## 🚀 Installation
 
 ```bash
-ng serve
-```
+# 1. Clone the repo
+git clone https://github.com/engabdallah123/E_Commerce_Angular.git
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# 2. Move to project folder
+cd E_Commerce_Angular
 
-## Code scaffolding
+# 3. Install dependencies
+npm install
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+# 4. Run the project
+ng serve -o
 
-```bash
-ng generate component component-name
-```
+# 5. Configure API
+- Make sure the Angular app points to the backend API URL in `environment.ts`:
+```ts
+export const environment = {
+  production: false,
+  apiUrl: 'https://your-backend-link.com/api'
+};
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
 
-## Building
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
