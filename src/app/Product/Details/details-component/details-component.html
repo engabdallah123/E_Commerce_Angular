@@ -1,0 +1,77 @@
+<div class="details container" *ngIf="product" style="margin-top: 190px;margin-bottom:50px">
+
+  <div class="head">
+    <h2>{{ product.name }} ({{product.description}})</h2>
+    <div class="brad-rev d-flex justify-content-start align-items-center">
+       <span class="id">#{{product.id}}</span>
+        <p class="brand">Brand: <span>{{ product.brand }}</span></p>
+        <div class="category">category: <span style="color: #0066c0;font-weight:bold">{{product.catName}}</span></div>
+
+  </div>
+  </div>
+
+  <div class="body">
+
+      <div class="images-section">
+      <img [src]="getImageUrl(selectedImage)" class="main-image" alt="Product" />
+
+    <div class="thumbs">
+      <img
+        *ngFor="let img of product.imageUrl"
+        [src]="getImageUrl(img)"
+        [class.active]="getImageUrl(img) === getImageUrl(selectedImage)"
+        (click)="changeImage(getImageUrl(img))"
+      />
+    </div>
+  </div>
+
+
+  <div class="info-section">
+
+     <p [ngClass]="{
+              stock: true,
+              'in-stock': product.stock > 10,
+              'low-stock': product.stock > 0 && product.stock <= 10,
+              'out-of-stock': product.stock === 0
+            }">  Availability: <strong>
+      {{ product.stock > 0 ? (product.stock + ' in stock') : 'Out of stock' }}
+    </strong>
+    </p>
+    
+     <div class="rating">Rating: <i class="star bi bi-star-fill text-warning" *ngFor="let star of getStars(product.rating)"></i> {{product.rating}}</div>
+     <hr>
+       <div class="price">
+        <span class="new-price">{{ product.price | currency:'USD' }}</span>
+        <p class="no-tax">$0 Or Sales Tax Collected On This Item <i class="bi bi-info-circle"></i></p>
+       </div>
+    <hr>
+
+    <p class="desc">{{ product.description }}</p>
+    <ul class="extra">
+      <li><i class="bi bi-check2-circle"></i>1 Year Warranty</li>
+      <li><i class="bi bi-arrow-clockwise"></i>30 Day Return Policy</li>
+      <li><i class="bi bi-credit-card"></i>Cash on Delivery available</li>
+    </ul>
+    <hr>
+    <div class="actions">
+    <div class="buts">
+      <input
+      type="number"
+      [(ngModel)]="selectedQuantity"
+      min="1"
+      value="1"
+      />
+       <button class="btn-cart" (click)="addToCart()">Add to Cart</button>
+       <button class="btn-wish" (click)="addToWishlist()"><i class="bi bi-house-heart"></i></button>
+    </div>
+      <div class="txt">
+        <i class="bi bi-truck"></i>
+        <p>Free Expedited Shipping <br> Order <strong>Now</strong> To Ship <strong>{{dateShip | date:'mediumDate'}}</strong></p>
+      </div>
+    </div>
+  </div>
+  </div>
+<br>
+<router-outlet></router-outlet>
+</div>
+

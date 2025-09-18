@@ -1,0 +1,133 @@
+/* الحالة الطبيعية */
+#main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 15px 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
+}
+
+/* الحالة بعد ما تعمل Scroll */
+#main-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.logo-text {
+  text-transform: uppercase;
+  font-size: 22px;
+}
+.login {
+  color: black;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 24px;
+  font-size: 17px;
+  transition: 0.3s;
+}
+.login:hover {
+  background-color: #efefef;
+}
+.register {
+  background-color: black;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 24px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.register:hover {
+  background-color: #222;
+}
+.cart-number {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 50%;
+  top: -4px;
+  right: -10px;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wish-number {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 50%;
+  top: -9px;
+  right: -10px;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* إخفاء المنيو افتراضياً في الموبايل */
+.navbar-collapse {
+  display: none;
+}
+
+.navbar-collapse.show {
+  display: block;
+}
+
+/* علشان يفضل مفتوح في الشاشات الكبيرة */
+@media (min-width: 992px) {
+  .navbar-collapse {
+    display: flex !important;
+  }
+}
+@media (max-width: 991px) {
+  .menue-right {
+    border-top: 1px solid #dee2e6;
+    padding-top: 10px;
+
+    justify-content: flex-start !important;
+    align-items: center !important;
+    width: 100%;
+  }
+}
+@media (max-width: 991px) {
+  .cat {
+    justify-content: center;
+    text-align: center;
+  }
+}
+.info-profile {
+  cursor: pointer;
+}
+.info-profile .dropdown-menu {
+  min-width: 150px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1000;
+}
+.info-profile .dropdown-menu .dropdown-item {
+  padding: 10px;
+  transition: 0.3s;
+}
+.info-profile .dropdown-menu .dropdown-item:hover {
+  transform: translateX(5px);
+}
+.info-profile .dropdown-menu > li:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+.info-profile .dropdown-menu .dropdown-item i {
+  margin-right: 5px;
+}
+.bi-arrow-bar-down {
+  cursor: pointer;
+}
+select {
+  width: 146px;
+}

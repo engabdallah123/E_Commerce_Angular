@@ -1,0 +1,178 @@
+.setting-page {
+    display: grid;
+    margin-left: 20px;
+    margin-right: 20px;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill,minmax(1000px, 1fr));
+}
+@media (max-width:767px) {
+    .setting-page {
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 10px;
+    grid-template-columns: minmax(100px, 1fr);
+  }
+}
+*{
+  outline: none;
+}
+/* start control box */
+.control {
+    padding: 20px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 0 5px #ddd;
+    margin:  0;
+}
+.control h2 {
+    margin-top: 0;
+     margin-bottom: 5px;
+}
+.control h4 {
+    color: var(--gray-color);
+    font-size: 15px;
+
+}
+.control .bodey {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.control .bodey .text span {
+    font-size: 18px;
+}
+.control .bodey .text p {
+    color: var(--gray-color);
+    margin-top: 10px;
+    font-size: 13px;
+}
+.control textarea {
+    display: block;
+    width: 100%;
+    min-height: 160px;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 15px;
+}
+/* end control box */
+/* start toggle switch */
+.lable-check {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+.toggle {
+    position: relative;
+    background-color: #ccc;
+    width: 78px;
+    height: 32px;
+    transition: var(--main-transition);
+    border-radius: 25px;
+    cursor: pointer;
+}
+.toggle::before {
+  font-family: "bootstrap-icons";
+  content: "\f62a";
+    font-weight: 900;
+    position: absolute;
+    color: #AAA;
+    width: 24px;
+    height: 24px;
+    top: 4px;
+    left: 4px;
+    border-radius:50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--main-transition);
+
+}
+.lable-check:checked + .toggle {
+    background-color: var(--blue-color);
+}
+.lable-check:checked + .toggle::before {
+    content: "\F633";
+    left: 50px;
+    color: var(--blue-color);
+}
+/* end toggle switch */
+/* start Widgets */
+.widget {
+    padding: 20px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 0 5px #ddd;
+    margin:  0;
+}
+.widget h2 {
+     margin-top: 0;
+     margin-bottom: 5px;
+}
+.widget h4 {
+    color: var(--gray-color);
+    font-size: 15px;
+}
+.widget > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.widget > div .input {
+    -webkit-appearance: none;
+    appearance: none;
+}
+.widget > div label {
+   padding-left: 33px;
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+.widget > div label:hover::before {
+    border-color: var(--blue-color-alt);
+}
+.widget > div label::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    border: 2px solid var(--gray-color);
+    top: 50%;
+    left: 0;
+    margin-top: -9px;
+    transition: var(--main-transition);
+}
+.widget > div label::after {
+   font-family: "bootstrap-icons";
+    content: "\F633";
+    font-weight: 900;
+    font-size: 13px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    margin-top: -9px;
+    background-color: var(--blue-color);
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0) rotate(360deg);
+    transition: var(--main-transition);
+}
+.widget > div .input:checked + label::after {
+    transform: scale(1);
+}
+/* end Widgets */
+
+

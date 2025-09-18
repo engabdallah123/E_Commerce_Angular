@@ -1,0 +1,26 @@
+<div class="related-products row">
+        <h2 class="section-title">Related Products</h2>
+
+        <div class="col-md-3 mb-3" *ngFor="let product of products">
+            <!-- Product 1 -->
+            <div class="product-card" (click)="Details(product.id,product.category.id)">
+                <div class="brand-header">
+                    <div class="product-brand">{{product.brand}}</div>
+                </div>
+                <div class="product-image">
+                    <img [src]="getImageUrl(product.imageUrl[0])" alt="Logo T-Shirt">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">{{product.name}}</h3>
+                    <div class="product-rate">
+                      <i class="star bi bi-star-fill text-warning" *ngFor="let star of getStars(product.rating)"></i>
+                      {{product.rating}}
+                    </div>
+                    <div class="product-prices">
+                        <span class="current-price">{{product.price | currency}}</span>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+</div>

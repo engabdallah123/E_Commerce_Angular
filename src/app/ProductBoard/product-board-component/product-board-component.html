@@ -1,0 +1,122 @@
+ <div class="container">
+        <header>
+            <h1>Product Sales Dashboard</h1>
+            <p class="subtitle">Visual representation of sales performance across different product categories</p>
+        </header>
+
+       <div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th (click)="sortData('name')">
+          Product <i class="bi bi-filter"></i>
+          <span *ngIf="sortedColumn === 'name'">
+            {{ sortDirection === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th (click)="sortData('price')">
+          Price <i class="bi bi-filter"></i>
+          <span *ngIf="sortedColumn === 'price'">
+            {{ sortDirection === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th (click)="sortData('stock')">
+          Stock <i class="bi bi-filter"></i>
+          <span *ngIf="sortedColumn === 'stock'">
+            {{ sortDirection === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th (click)="sortData('rating')">
+          Rating <i class="bi bi-filter"></i>
+          <span *ngIf="sortedColumn === 'rating'">
+            {{ sortDirection === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody id="productTable">
+      <tr *ngFor="let product of allProducts">
+        <td>
+          <div class="product-cell">
+            <img
+              [src]="getImageUrl(product.imageUrl[0])"
+              alt="{{ product.name }}"
+              class="product-image"
+            />
+            <div class="product-info">
+              <span class="product-name">{{ product.name }}</span>
+              <span class="product-category">{{ product.category }}</span>
+            </div>
+          </div>
+        </td>
+        <td class="price">${{ product.price }}</td>
+        <td>
+          <span
+            [ngClass]="{
+              stock: true,
+              'in-stock': product.stock > 10,
+              'low-stock': product.stock > 0 && product.stock <= 10,
+              'out-of-stock': product.stock === 0
+            }"
+          >
+            {{ product.stock > 0 ? (product.stock + ' in stock') : 'Out of stock' }}
+          </span>
+        </td>
+        <td>
+          <div class="rating">
+            <i class="bi bi-star-fill" *ngFor="let star of getStars(product.rating)"></i>
+            <span class="rating-text">{{ product.rating }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="actions">
+            <i
+              class="bi bi-pencil-square action-icon edit-icon"
+              (click)="editProduct(product)"
+            ></i>
+            <i
+              class="bi bi-trash3 action-icon delete-icon"
+              (click)="deleteProduct(product.id)"
+            ></i>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Edit Form Modal -->
+<div class="modal-overlay" *ngIf="isEditMode">
+  <div class="modal-content">
+    <h2 class="modal-title">Edit Product</h2>
+
+    <form [formGroup]="editForm" class="form-grid">
+      <div class="form-group">
+        <label>Product Name</label>
+        <input type="text" formControlName="name" placeholder="Enter product name">
+      </div>
+
+      <div class="form-group">
+        <label>Price</label>
+        <input type="number" formControlName="price" placeholder="0.00">
+      </div>
+
+      <div class="form-group">
+        <label>Stock</label>
+        <input type="number" formControlName="stock" placeholder="0">
+      </div>
+
+      <div class="form-group">
+        <label>Rating</label>
+        <input type="number" formControlName="rating" min="0" max="5" placeholder="0 - 5">
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-save" (click)="saveEdit()" [disabled]="editForm.invalid">💾 Save</button>
+        <button type="button" class="btn btn-cancel" (click)="closeEditForm()">❌ Cancel</button>
+      </div>
+    </form>
+  </div>
+

@@ -1,0 +1,56 @@
+<h1 class="main-heading">Add Product</h1>
+<div class="product-container">
+  <!-- Left side -->
+  <div class="product-main">
+    <form class="product-form" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Product Name</label>
+    <input id="name" formControlName="name"  />
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="number" id="price" formControlName="price" placeholder="Price" />
+  </div>
+
+  <div class="form-group">
+    <label for="stock">Stock</label>
+    <input type="number" id="stock" formControlName="stock" placeholder="Stock" />
+  </div>
+
+  <div class="form-group">
+    <label for="brand">Brand</label>
+    <input id="brand" formControlName="brand"  />
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="catId">Category</label>
+    <select id="catId" formControlName="catId">
+      <option value="">-- Select Category --</option>
+      <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+  <label for="file">Upload Photos</label>
+  <input type="file" id="file" (change)="onFileSelected($event)" multiple />
+</div>
+
+<div class="preview">
+  <img *ngFor="let img of previewUrls" [src]="img" width="100" height="100" />
+</div>
+
+  <div class="form-actions">
+    <button type="submit" class="save" [disabled]="productForm.invalid">Save</button>
+  </div>
+</form>
+
+  </div>
+
+
+</div>

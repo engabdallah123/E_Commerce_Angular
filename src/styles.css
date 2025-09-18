@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import 'swiper/swiper-bundle.css';
+
+
+
+.my-swal {
+  font-size: 14px;   /* تصغير الخط */
+  width: 480px;
+  height: 230px;      /* عرض أقل */
+  padding: 10px 5px;     /* تقليل المسافة الداخلية */
+}
+li {
+  list-style: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0px;
+}
+body {
+   font-family: "Work Sans", sans-serif;
+}
+html {
+   scroll-behavior: smooth;
+}
+:root {
+    --blue-color:#0075ff;
+    --blue-color-alt:#0d69d5;
+    --orang-color:#f59e0b;
+    --green-color:#22c55e;
+    --red-color:#f44336;
+    --gray-color:#888;
+    --border-color:#ccc;
+    --main-transition:0.3s;
+    --main-box-shadow:0 0 5px #ddd;
+
+}
+
+/* strst main heading */
+.main-heading {
+    margin: 20px 20px 40px;
+    position: relative;
+    color: #2c3e50 !important;
+}
+.main-heading::before,
+.main-heading::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    left: 0;
+    bottom: -8px;
+}
+.main-heading::before {
+    background-color:white;
+    width: 120px;
+}
+.main-heading::after {
+    background-color: #2c3e50 !important;
+    width: 40px;
+}
+/* end main heading */

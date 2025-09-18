@@ -1,0 +1,115 @@
+   <h1 class="main-heading">Orders</h1>
+  <div class="order-page">
+        <div class="column orders-column">
+            <div class="apple-logo">
+                <i class="bi bi-boxes"></i>
+            </div>
+            <ul class="order-list">
+                <li class="order-item d-flex align-items-center justify-content-between " *ngFor="let order of orders">
+                    <div class="order-info">
+                        <div class="order-name">Order #{{ order.id }} - {{ order.paymentMethod }}</div>
+                        <div class="total mt-2">
+                           Customer: <strong>{{ order.custInfo.name}}</strong>
+                          </div>
+                        <div class="order-date">Order Date: {{ order.orderDate | date: 'medium' }}</div>
+                        <div class="total mt-2">
+                           Total: <strong class="fw-bold text-success">EGP {{ getTotalAmount(order) }}</strong>
+                          </div>
+
+
+                    </div>
+                    <div *ngFor="let item of order.orderItems" class="item-row d-flex align-items-center justify-content-between">
+                       <div class="d-flex align-items-center">
+                     <img [src]="getImageUrl(item.imageUrl)" alt="{{ item.productName }}" class="product-img rounded me-3" />
+                    <span style="margin-right: 10px;"><strong>{{ item.productName }}</strong></span>
+                    </div>
+                      <div>
+                         <span>Qty: {{ item.quantity }}</span> | <span>EGP {{ item.unitPrice }}</span>
+                      </div>
+                      </div>
+
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="column status-column">
+            <div class="header">
+                <h1>Order Status</h1>
+            </div>
+
+            <h2 class="section-title">Pending</h2>
+
+            <div class="status-cards" *ngFor="let order of orders">
+
+                <div class="status-card pending">
+                    <div class="status-info">
+                        <div class="status-icon">
+                           <i class="bi bi-clock"></i>
+                        </div>
+                        <div>
+                            <div class="status-text">Order #{{order.id}}</div>
+                            <div class="status-number">Processing</div>
+                        </div>
+                    </div>
+                    <div class="status-indicator">{{order.orderState}}</div>
+                </div>
+
+            </div>
+
+            <h2 class="section-title">Sent</h2>
+            <div class="status-cards">
+                <div class="status-card sent">
+                    <div class="status-info">
+                        <div class="status-icon">
+                            <i class="bi bi-rocket-takeoff"></i>
+                        </div>
+                        <div>
+                            <div class="status-text">Order #9763474</div>
+                            <div class="status-number">In transit</div>
+                        </div>
+                    </div>
+                    <div class="status-indicator">Sent</div>
+                </div>
+
+                <div class="status-card sent">
+                    <div class="status-info">
+                        <div class="status-icon">
+                             <i class="bi bi-rocket-takeoff"></i>
+                        </div>
+                        <div>
+                            <div class="status-text">Order #2538268</div>
+                            <div class="status-number">Out for delivery</div>
+                        </div>
+                    </div>
+                    <div class="status-indicator">Sent</div>
+                </div>
+
+                <div class="status-card sent">
+                    <div class="status-info">
+                        <div class="status-icon">
+                             <i class="bi bi-rocket-takeoff"></i>
+                        </div>
+                        <div>
+                            <div class="status-text">Order #9572345</div>
+                            <div class="status-number">Delivered</div>
+                        </div>
+                    </div>
+                    <div class="status-indicator">Sent</div>
+                </div>
+
+                <div class="status-card sent">
+                    <div class="status-info">
+                        <div class="status-icon">
+                            <i class="bi bi-rocket-takeoff"></i>
+                        </div>
+                        <div>
+                            <div class="status-text">Order #12471247</div>
+                            <div class="status-number">Delivered</div>
+                        </div>
+                    </div>
+                    <div class="status-indicator">Sent</div>
+                </div>
+            </div>
+        </div>
+    </div>

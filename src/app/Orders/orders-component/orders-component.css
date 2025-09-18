@@ -1,0 +1,230 @@
+        .order-page {
+              display: grid;
+    margin-left: 20px;
+    margin-right: 20px;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill,minmax(1000px, 1fr));
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .column {
+            padding: 35px;
+        }
+
+        .orders-column {
+              padding: 20px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 0 5px #ddd;
+    margin:  0;
+        }
+
+        .status-column {
+               padding: 20px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 0 5px #ddd;
+    margin:  0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .see-all {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .see-all i {
+            margin-left: 5px;
+            font-size: 14px;
+        }
+
+        .order-list {
+            list-style: none;
+        }
+
+        .order-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media (max-width:991px) {
+          .order-item {
+            flex-direction: column;
+            align-items: start !important;
+          }
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .order-info {
+            flex: 1;
+        }
+
+        .order-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #111;
+        }
+
+        .order-date {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .order-arrow {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .status-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .status-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .status-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .status-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .status-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .pending .status-icon {
+            background: rgba(255, 149, 0, 0.15);
+            color: #ff9500;
+        }
+
+        .sent .status-icon {
+            background: rgba(52, 199, 89, 0.15);
+            color: #34c759;
+        }
+
+        .status-text {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .status-number {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .status-indicator {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .pending .status-indicator {
+            background: rgba(255, 149, 0, 0.15);
+            color: #ff9500;
+        }
+
+        .sent .status-indicator {
+            background: rgba(52, 199, 89, 0.15);
+            color: #34c759;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 30px 0 20px;
+            color: #111;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin: 25px 0;
+        }
+
+        .apple-logo {
+            text-align: center;
+            margin-bottom: 0;
+        }
+        @media (max-width:991px) {
+          .apple-logo {
+            display: none;
+          }
+        }
+
+        .apple-logo i {
+            font-size: 40px;
+            color: #111;
+        }
+.order-card {
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.item-row {
+  padding: 8px 0;
+
+  margin-right: 20px;
+}
+
+.item-row:last-child {
+  border-bottom: none;
+}
+
+.product-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}

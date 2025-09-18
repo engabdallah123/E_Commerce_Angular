@@ -1,0 +1,158 @@
+<div class="container">
+  <header>
+    <h1>Customer Feedback</h1>
+    <p class="subtitle">Review and manage customer support messages</p>
+
+    <div class="feedback-stats">
+      <div class="stat-card">
+        <div class="stat-value">{{ totalMessages }}</div>
+        <div class="stat-label">Total Messages</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value support-value">{{ supportiveMessages }}</div>
+        <div class="stat-label">Supportive Feedback</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value unsupport-value">{{ unsupportiveMessages }}</div>
+        <div class="stat-label">Unsupportive Feedback</div>
+      </div>
+    </div>
+
+    <div class="filters">
+      <button
+        *ngFor="let filter of filters"
+        (click)="setFilter(filter)"
+        [class.active]="currentFilter === filter"
+        class="filter-btn">
+        {{ filter }}
+      </button>
+    </div>
+  </header>
+
+  <div class="feedback-container">
+    <!-- Supportive Feedback Column -->
+    <div class="feedback-column">
+      <div class="column-header support-header">
+        <i class="bi bi-hand-thumbs-up"></i> Supportive Feedback ({{ getSupportiveCount() }})
+      </div>
+      <div class="feedback-list">
+        <ng-container *ngFor="let feedback of filteredFeedback">
+          <div *ngIf="feedback.type === 'supportive'" class="feedback-item support-item">
+            <div class="feedback-meta">
+              <div class="customer-info">
+                <div class="avatar">{{ getInitials(feedback.customerName) }}</div>
+                <div class="customer-name">{{ feedback.customerName }}</div>
+              </div>
+              <div class="feedback-date">{{feedback.date | date:'short'}}</div>
+            </div>
+            <div class="feedback-content">
+              {{ feedback.message }}
+            </div>
+
+            <div class="response-indicator" [class.responded]="feedback.responded" [class.pending]="!feedback.responded">
+              <i class="fas" [class.fa-check-circle]="feedback.responded" [class.fa-clock]="!feedback.responded"></i>
+              {{ feedback.responded ? ('Responded at ' + (feedback.date | date:'short')) : 'Response pending' }}
+
+            </div>
+
+            <div class="feedback-actions">
+              <button class="action-btn reply-btn" (click)="replyToFeedback(feedback)">
+                <i class="bi bi-reply"></i> Reply
+              </button>
+              <button class="action-btn" (click)="archiveFeedback(feedback)">
+                <i class="bi bi-archive"></i> Archive
+              </button>
+               <button class="action-btn delete-btn" (click)="DeleteMessage(feedback.id)">
+                <i class="bi bi-trash3"></i>
+              </button>
+            </div>
+          </div>
+        </ng-container>
+
+        <div class="empty-state" *ngIf="getSupportiveCount() === 0">
+          <i class="bi bi-emoji-smile"></i>
+          <p>No supportive feedback at the moment</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unsupportive Feedback Column -->
+    <div class="feedback-column">
+      <div class="column-header unsupport-header">
+        <i class="bi bi-hand-thumbs-down"></i> Unsupportive Feedback ({{ getUnsupportiveCount() }})
+      </div>
+      <div class="feedback-list">
+        <ng-container *ngFor="let feedback of filteredFeedback">
+          <div *ngIf="feedback.type === 'unsupportive'" class="feedback-item unsupport-item">
+            <div class="feedback-meta">
+              <div class="customer-info">
+                <div class="avatar">{{ getInitials(feedback.customerName) }}</div>
+                <div class="customer-name">{{ feedback.customerName }}</div>
+              </div>
+              <div class="feedback-date">{{feedback.date | date:'short'}}</div>
+            </div>
+            <div class="feedback-content">
+              {{ feedback.message }}
+            </div>
+
+
+            <div class="response-indicator" [class.responded]="feedback.responded" [class.pending]="!feedback.responded">
+              <i class="fas" [class.fa-check-circle]="feedback.responded" [class.fa-clock]="!feedback.responded"></i>
+              {{ feedback.responded ? ('Resolved at ' + (feedback.date | date:'short')) : 'Resolve pending' }}
+
+            </div>
+
+            <div class="feedback-actions">
+              <button class="action-btn" (click)="archiveFeedback(feedback)">
+                  <i class="bi bi-archive"></i> Archive
+              </button>
+              <button class="action-btn resolve-btn" (click)="resolveFeedback(feedback)">
+                <i class="bi bi-check-all"></i> Resolve
+              </button>
+              <button class="action-btn delete-btn" (click)="DeleteMessage(feedback.id)">
+                <i class="bi bi-trash3"></i>
+              </button>
+            </div>
+          </div>
+        </ng-container>
+
+        <div class="empty-state" *ngIf="getUnsupportiveCount() === 0">
+          <i class="bi bi-emoji-smile"></i>
+          <p>No unsupportive feedback at the moment</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feedback-column" style="margin-top: 40px;">
+  <div class="column-header archive-header">
+    <i class="fas fa-archive"></i> Archived Feedback ({{ archivedFeedback.length }})
+  </div>
+  <div class="feedback-list">
+    <ng-container *ngFor="let feedback of archivedFeedback">
+      <div class="feedback-item archive-item">
+        <div class="feedback-meta">
+          <div class="customer-info">
+            <div class="avatar">{{ getInitials(feedback.customerName) }}</div>
+            <div class="customer-name">{{ feedback.customerName }}</div>
+          </div>
+          <div class="feedback-date">{{ feedback.date | date:'short' }}</div>
+        </div>
+        <div class="feedback-content">
+          {{ feedback.message }}
+        </div>
+        <div class="feedback-actions">
+          <button class="action-btn restore-btn" (click)="restoreFeedback(feedback)">
+            <i class="fas fa-undo"></i> Restore
+          </button>
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="empty-state" *ngIf="archivedFeedback.length === 0">
+      <i class="bi bi-dropbox"></i>
+      <p>No archived feedback</p>
+    </div>
+  </div>
+</div>
+</div>

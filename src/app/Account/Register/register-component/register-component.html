@@ -1,0 +1,127 @@
+ <div class="login-container container ">
+        <div class="login-header">
+          <img src="logo2.png" alt="">
+            <h1>Welcome To Our Store!</h1>
+            <p>Sign Up to continue</p>
+        </div>
+
+        <div class="login-form">
+
+          <form [formGroup]="useRegisterForm" (submit)="AddUser()">
+                       <!-- Full Name -->
+                      <div class="form-group">
+                           <label for="name">Full Name</label>
+                           <div class="input-with-icon">
+                           <i class="bi bi-person"></i>
+                           <input type="text" id="name" formControlName="fullName" placeholder="Enter your Name">
+                       </div>
+                            <div class="error" *ngIf="useRegisterForm.get('fullName')?.touched && useRegisterForm.get('fullName')?.invalid">
+                            <small *ngIf="useRegisterForm.get('fullName')?.errors?.['required']">Full Name is required</small>
+                           <small *ngIf="useRegisterForm.get('fullName')?.errors?.['minlength']">At least 3 characters</small>
+                        </div>
+                      </div>
+
+                        <!-- Email -->
+                       <div class="form-group">
+                             <label for="email">Email address</label>
+                               <div class="input-with-icon">
+                                <i class="bi bi-envelope"></i>
+                                 <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+                         </div>
+                             <div class="error" *ngIf="useRegisterForm.get('email')?.touched && useRegisterForm.get('email')?.invalid">
+                                <small *ngIf="useRegisterForm.get('email')?.errors?.['required']">Email is required</small>
+                                 <small *ngIf="useRegisterForm.get('email')?.errors?.['pattern']">Invalid email format</small>
+                              </div>
+                         </div>
+                        <!-- Phone -->
+                       <div class="form-group">
+                             <label for="phone">Phone Number</label>
+                               <div class="input-with-icon">
+                                <i class="bi bi-telephone"></i>
+                                 <input type="phone" id="phone" formControlName="phone" placeholder="Enter your Phone">
+                         </div>
+                             <div class="error" *ngIf="useRegisterForm.get('phone')?.touched && useRegisterForm.get('phone')?.invalid">
+                                <small *ngIf="useRegisterForm.get('phone')?.errors?.['required']">Phone is required</small>
+                                  <small *ngIf="useRegisterForm.get('phone')?.errors?.['minlength']">Must be 11 digits</small>
+                                  <small *ngIf="useRegisterForm.get('phone')?.errors?.['maxlength']">Must be 11 digits</small>
+                              </div>
+                         </div>
+
+                        <!-- Address -->
+                        <div class="form-group">
+                              <label for="address">Full Address</label>
+                               <div class="input-with-icon">
+                               <i class="bi bi-geo-alt"></i>
+                                 <input type="text" id="address" formControlName="address" placeholder="Enter your Address">
+                              </div>
+                                 <div class="error" *ngIf="useRegisterForm.get('address')?.touched && useRegisterForm.get('address')?.invalid">
+                                     <small *ngIf="useRegisterForm.get('address')?.errors?.['required']">Address is required</small>
+                                    <small *ngIf="useRegisterForm.get('address')?.errors?.['maxlength']">Max 50 characters</small>
+                                </div>
+                         </div>
+
+                        <!-- Password -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                         <div class="input-with-icon">
+                           <i class="bi bi-lock"></i>
+                               <input type="password" id="password" formControlName="password" placeholder="Enter your password">
+                           </div>
+                         <div class="error" *ngIf="useRegisterForm.get('password')?.touched && useRegisterForm.get('password')?.invalid">
+                        <small *ngIf="useRegisterForm.get('password')?.errors?.['required']">Password is required</small>
+                        <small *ngIf="useRegisterForm.get('password')?.errors?.['minlength']">At least 6 characters</small>
+                        </div>
+                     </div>
+
+                        <!-- Confirm Password -->
+                       <div class="form-group">
+                          <label for="repassword">Confirm Password</label>
+                             <div class="input-with-icon">
+                               <i class="bi bi-lock"></i>
+                                 <input type="password" id="repassword" formControlName="rePassword" placeholder="Confirm password">
+                            </div>
+                            <div class="error" *ngIf="useRegisterForm.get('rePassword')?.touched && useRegisterForm.get('rePassword')?.invalid">
+                             <small *ngIf="useRegisterForm.get('rePassword')?.errors?.['required']">Confirmation is required</small>
+                               </div>
+                               <div class="error" *ngIf="useRegisterForm.errors?.['passwordMismatch'] && useRegisterForm.get('rePassword')?.touched">
+                        <small>Passwords do not match</small>
+                        </div>
+                      </div>
+
+
+                 <div class="form-options">
+                   <div class="remember-me">
+                    <input type="checkbox" id="remember" name="state" formControlName="state">
+                    <label for="remember"><strong>I have read the</strong> Terms and Conditions</label>
+                </div>
+                </div>
+
+
+                 <button type="submit" class="login-button" [disabled]="useRegisterForm.invalid">Register</button>
+
+          </form>
+
+
+            <div class="divider">
+                <span>Or continue with</span>
+            </div>
+
+            <div class="social-login">
+                <div class="social-button">
+                    <i class="bi bi-google"></i>
+                </div>
+                <div class="social-button">
+                    <i class="bi bi-facebook"></i>
+                </div>
+                <div class="social-button">
+                    <i class="bi bi-twitter"></i>
+                </div>
+            </div>
+
+            <div class="signup-link">
+                Already have an account? <a routerLink="/login">Login</a>
+            </div>
+          </div>
+    </div>
+
+

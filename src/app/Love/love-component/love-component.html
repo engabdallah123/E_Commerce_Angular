@@ -1,0 +1,37 @@
+<div class="container" style="margin-top: 190px;margin-bottom:50px">
+  <table class="table table-bordered table-striped text-center" style="vertical-align: middle;">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col" colspan="2">Product</th>
+        <th scope="col">Price</th>
+        <th scope="col">Action</th>
+        <th scope="col">Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of love; track $index) {
+      <tr>
+        <td>
+          <img [src]="getImageUrl(product?.imageUrl?.[0])" alt="Product Image" width="150" class="img-thumbnail">
+        </td>
+        <td>{{ product?.description }}</td>
+        <td>{{ product?.price | currency }}</td>
+        <td>
+          <div class="btn btn-outline-secondary" (click)="addToCart(product)" >
+            <i class="bi bi-cart-plus-fill me-2"></i><span class="add-cart">Add To Cart</span>
+          </div>
+        </td>
+        <td>
+          <a class="text-danger fs-5" style="cursor: pointer;" (click)="removeFromWishlist($index)">
+            <i class="bi bi-trash"></i>
+          </a>
+        </td>
+      </tr>
+       }@empty {
+        <tr>
+          <td colspan="5" class="fs-4">The Favorite List Is Empty</td>
+        </tr>
+       }
+    </tbody>
+  </table>
+</div>

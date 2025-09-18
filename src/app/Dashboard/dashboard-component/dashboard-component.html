@@ -1,0 +1,72 @@
+
+<div class="page">
+  <div class="side">
+    <ul>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/board/dashContent" >
+          <i class="bi bi-building-dash"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/board/setting" >
+          <i class="bi bi-gear-wide-connected"></i>
+          <span>Settings</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/board/orders" >
+          <i class="bi bi-border-style"></i>
+          <span>Orders</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/board/products" >
+          <i class="bi bi-cart-check"></i>
+          <span>Products</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/board/customer" >
+          <i class="bi bi-people"></i>
+          <span>Customers</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/board/message" >
+          <i class="bi bi-chat-text"></i>
+          <span>Messages</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/board/addPro" >
+          <i class="bi bi-file-earmark-plus"></i>
+          <span>Add Product</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/home" >
+          <i class="bi bi-house-door"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a style="color: black;" (click)="Logout()">
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content">
+     <div class="head">
+      <div class="icons">
+        <i class="bi bi-person-circle fs-4"></i>
+        <span>Welcome (<strong>{{claims.unique_name}}</strong>)</span>
+      </div>
+    </div>
+    <!-- هنا هيتحط الصفحات الفرعية -->
+    <router-outlet></router-outlet>
+  </div>
+</div>

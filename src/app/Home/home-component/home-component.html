@@ -1,0 +1,142 @@
+<div class="home-page">
+  <div class="text">
+    <h1>Welcom To Our Store</h1>
+    <p>Git Start Your Favoriet Shopping</p>
+    <a class="git-start" routerLink="/product">Shop Now</a>
+  </div>
+  <div class="anim" #anim style="width: 600px; height: 600px"></div>
+</div>
+<!-- end home page -->
+<!-- start feature page -->
+<div class="common-case">
+  <h2>Store Features</h2>
+  <p>
+    Explore the amazing features of our store that make your shopping experience
+    exceptional.
+  </p>
+</div>
+<div class="feature" id="feature">
+  <div class="continer container">
+    <div class="box-quality">
+      <div class="img-holder">
+        <img src="delivery.jpg" alt="feature image 1" />
+      </div>
+      <h3>Fast Delivery</h3>
+      <p>
+        Experience swift and reliable delivery services that ensure your orders
+        arrive promptly and in perfect condition
+      </p>
+      <a href="#">More</a>
+    </div>
+    <div class="box-time">
+      <div class="img-holder">
+        <img src="payment.jpg" alt="feature image 1" />
+      </div>
+      <h3>Secure Payment</h3>
+      <p>
+        Shop with confidence knowing that our secure payment gateways protect
+        your financial information at all times
+      </p>
+      <a href="#">More</a>
+    </div>
+    <div class="box-passion">
+      <div class="img-holder">
+        <img src="desk_support.jpg" alt="feature image 1" />
+      </div>
+      <h3>24/7 Support</h3>
+      <p>
+        Our dedicated customer support team is available around the clock to
+        assist you with any inquiries or issues you may have
+      </p>
+      <a href="#">More</a>
+    </div>
+  </div>
+</div>
+
+<!-- end feature page -->
+<!-- start contact page -->
+<div class="common-case">
+  <h2>Contact Us</h2>
+  <p>
+    We'd love to hear from you! Reach out to us with any questions, feedback, or
+    inquiries.
+  </p>
+</div>
+<div class="contact-page" id="contact">
+  <div class="continer container">
+    <div class="img">
+      <img src="contact.png" alt="contact image" />
+    </div>
+    <div class="information">
+      <div class="box">
+        <i class="bi bi-telephone"></i>
+        <h3>Phone</h3>
+        <p>010 6259 2321</p>
+      </div>
+      <div class="box">
+        <i class="bi bi-geo-alt"></i>
+        <h3>Our Head Office</h3>
+        <p>El_Robaa 16 II, 1052 CD, Egypt</p>
+      </div>
+      <div class="box">
+        <i class="bi bi-inboxes"></i>
+        <h3>fax</h3>
+        <p>3 (047) 251-7937</p>
+      </div>
+    </div>
+
+        <div class="common-case">
+  <h2>Send Us Feedback</h2>
+  <p>
+    We'd love to hear from you - supportive or unsupportive
+  </p>
+</div>
+     <div class="form-container">
+            <form [formGroup]="useFeedBackForm" (submit)="AddFeedBack()">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <div class="input-icon">
+                           <i class="bi bi-person"></i>
+                            <input type="text" id="name" placeholder="Enter your full name" formControlName="customerName">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <div class="input-icon">
+                            <i class="bi bi-envelope"></i>
+                            <input type="email" id="email" placeholder="Enter your email address" formControlName="customerEmail">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback-type">Feedback Type</label>
+                    <div class="input-icon">
+                       <i class="bi bi-chat-left-dots"></i>
+                        <select id="feedback-type" formControlName="type">
+                            <option value="" disabled selected>Select your feedback type</option>
+                            <option value="supportive">Supportive Feedback</option>
+                            <option value="unsupportive">Unsupportive Feedback</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <div class="input-icon">
+                        <i class="bi bi-pencil"></i>
+                        <textarea id="message" placeholder="Please share your feedback in detail" formControlName="message"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">
+                    <i class="fas fa-paper-plane"></i> Send Feedback
+                </button>
+            </form>
+        </div>
+  </div>
+</div>
+<!-- end contact page -->

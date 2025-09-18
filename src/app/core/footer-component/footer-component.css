@@ -1,0 +1,120 @@
+.footing {
+  background-color: #191919;
+  padding: 40px 0 0;
+}
+.footing .continer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  .footing .continer {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    text-align: center;
+  }
+}
+.footing .continer .box h2 {
+  color: white;
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+.footing .continer .box .social {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .footing .continer .box .social {
+    justify-content: center;
+  }
+
+}
+.footing .continer .box .social li {
+  margin-right: 15px;
+}
+.footing .continer .box .social li a {
+  width: 60px;
+  height: 60px;
+  background-color: #313131;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: 0.3s;
+  font-size: 20px;
+}
+.footing .continer .box .social .facebook:hover {
+  background-color: #1877f2;
+}
+.footing .continer .box .social .twitter:hover {
+  background-color: #0a66c2;
+}
+.footing .continer .box .social .insta:hover {
+  background-color: #3a3133;
+}
+.footing .continer .box .social li a i {
+  color: #b9b9b9;
+}
+.footing .continer .box .p-first {
+  margin-top: 20px;
+  line-height: 1.7;
+  color: #b9b9b9;
+}
+.footing .box .links {
+  padding-top: 43px;
+}
+.footing .box .links li {
+  padding: 15px 0;
+  transition: 0.3s;
+}
+.footing .box .links li a::before {
+  font-family: "font Awesome 5 free";
+  content: "\f101";
+  font-weight: 900;
+  margin-right: 10px;
+  color: #2196f3;
+}
+.footing .box .links li:not(:last-child) {
+  border-bottom: 1px solid #444;
+}
+.footing .box .links li a {
+  color: #b9b9b9;
+  transition: 0.3s;
+}
+.footing .box .links li:hover a {
+  margin-left: 10px;
+  color: white;
+}
+.footing .box .line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-top: 16px;
+}
+.footing .box .line i {
+  margin-right: 14px;
+  font-size: 24px;
+  color: #2196f3;
+}
+.footing .box .line p {
+  color: #b9b9b9;
+  line-height: 1.6;
+}
+.footing .box .line .phone {
+  color: #b9b9b9;
+  display: block;
+  line-height: 1.6;
+}
+.footing .gallrey img {
+  max-width: 78px;
+  width: 78px;
+  border: 3px solid white;
+}
+.footing .made {
+  display: block;
+  color: white;
+  text-align: center;
+  margin: 0px auto 0px;
+  border-top: 1px solid #444;
+  padding: 20px 0;
+}

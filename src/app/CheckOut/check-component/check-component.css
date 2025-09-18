@@ -1,0 +1,60 @@
+.checkout-header {
+  background: #212529; /* نفس لون الزرار dark */
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 190px;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  border-left: 4px solid #212529;
+  padding-left: 8px;
+  margin-bottom: 15px;
+  color: #212529;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cart-item {
+  transition: transform 0.2s ease-in-out;
+}
+.cart-item:hover {
+  transform: scale(1.02);
+}
+
+.cart-img img {
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.subtotal {
+  font-size: 1.1rem;
+}
+
+form .form-group label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+form .form-control {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+form .form-control:focus {
+  border-color: #212529;
+  box-shadow: 0 0 5px rgba(33, 37, 41, 0.5);
+}
+
+button[type="submit"] {
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background: #000; /* أغمق من dark */
+}

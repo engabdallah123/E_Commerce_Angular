@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-lg" id="main-header">
+  <div class="container-fluid container">
+    <a class="navbar-brand d-flex justify-content-center align-items-center" routerLink="home">
+      <img src="logo2.png" alt="logo" width="40px">
+      <span class="m-2 logo-text">Arab Store</span>
+    </a>
+
+    <!-- زرار التوججلر -->
+    <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- المنيو -->
+    <div class="navbar-collapse" [ngClass]="{ 'show': isMenuOpen }">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item ms-2 me-2 fs-6 fw-bold">
+          <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item ms-2 me-2 fs-6 fw-bold">
+          <a class="nav-link" href="#feature">Features</a>
+        </li>
+        <li class="nav-item ms-2 me-2 fs-6 fw-bold">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+        <li class="nav-item ms-2 me-2 fs-6 fw-bold">
+          <a class="nav-link" routerLink="product">Products</a>
+        </li>
+        @if(accountServices.IsLogged()) {
+        <li class="cat nav-item ms-2 me-2 fs-6 fw-bold d-flex flex-column">
+              <select id="select-cat" class="form-select"
+                 (change)="onCategoryChange($event)">
+                <option value=""> Categories</option>
+               <option *ngFor="let cat of categories" [value]="cat.id">
+                  {{cat.name}}
+                </option>
+              </select>
+       </li>
+      }
+
+      </ul>
+      <div class="menue-right d-flex align-items-center ms-auto gap-3">
+         @if(accountServices.IsLogged()) {
+        <!-- Profile / Cart -->
+        <a class="nav-link position-relative cart" routerLink="/cart">
+          <i class="bi bi-cart4 fs-4"></i>
+          <span class="cart-number"><span>{{cartCount}}</span></span>
+        </a>
+        <a class="nav-link position-relative" routerLink="/wishlist">
+          <i class="bi bi-heart-fill fs-6"></i>
+          <span class="wish-number"><span>{{wishlistCount}}</span></span>
+        </a>
+      }
+       @if(!accountServices.IsLogged()) {
+        <a class="ms-3 login" routerLink="/login">Login</a>
+        <a class="ms-3 register" routerLink="/register">Register</a>
+       }
+
+       @if(accountServices.IsLogged()) {
+        <div class="ms-3 profile d-flex align-items-center">
+          <i class="bi bi-person-circle fs-4"></i>
+          <div class="info-profile position-relative d-inline-block" #menu>
+            <span class="ms-2 me-2">Welcome (<strong>{{claims.unique_name}}</strong>)</span>
+            <i class="bi bi-arrow-return-right" style="cursor: pointer;" (click)="toggleMenuProfile()"></i>
+
+            <ul class="dropdown-menu mt-2 position-absolute" [ngClass]="{ 'show': menuOpen }">
+                @if(claims.role == `Admin`) {
+              <li>
+                <a class="dropdown-item" routerLink="/board/dashContent"><i class="bi bi-clipboard-data"></i>Dashboard</a>
+              </li>
+             }
+              <li>
+                <a class="dropdown-item" routerLink="/myOrder"><i class="bi bi-basket3"></i>My Orders</a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" (click)="Logout()"><i class="bi bi-box-arrow-right"></i>Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      }
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,83 @@
+ <div class="login-container container ">
+        <div class="login-header">
+          <img src="logo2.png" alt="">
+            <h1>Welcome To Our Store!</h1>
+            <p>Sign Up to continue</p>
+        </div>
+
+        <div class="login-form">
+
+          <form [formGroup]="useLoginForm" (submit)="AddUser()">
+                       <!-- Full Name -->
+                      <div class="form-group">
+                           <label for="name">User Name</label>
+                           <div class="input-with-icon">
+                           <i class="bi bi-person"></i>
+                           <input type="text" id="name" formControlName="userName" placeholder="Enter your Name">
+                       </div>
+                            <div class="error" *ngIf="useLoginForm.get('fullName')?.touched && useLoginForm.get('fullName')?.invalid">
+                            <small *ngIf="useLoginForm.get('fullName')?.errors?.['required']">Full Name is required</small>
+                           <small *ngIf="useLoginForm.get('fullName')?.errors?.['minlength']">At least 3 characters</small>
+                        </div>
+                      </div>
+
+
+
+                        <!-- Password -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                         <div class="input-with-icon">
+                           <i class="bi bi-lock"></i>
+                               <input type="password" id="password" formControlName="password" placeholder="Enter your password">
+                           </div>
+                         <div class="error" *ngIf="useLoginForm.get('password')?.touched && useLoginForm.get('password')?.invalid">
+                        <small *ngIf="useLoginForm.get('password')?.errors?.['required']">Password is required</small>
+                        <small *ngIf="useLoginForm.get('password')?.errors?.['minlength']">At least 6 characters</small>
+                        </div>
+                     </div>
+
+
+
+
+                 <div class="form-options">
+                   <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember"><strong>I have read the</strong> Terms and Conditions</label>
+                </div>
+                </div>
+
+
+                 <button type="submit" class="login-button" [disabled]="useLoginForm.invalid">Login</button>
+
+
+                 <div class="error text-center" *ngIf="loginError">
+                     <small>{{ loginError }}</small>
+                </div>
+
+
+          </form>
+
+
+            <div class="divider">
+                <span>Or continue with</span>
+            </div>
+
+            <div class="social-login">
+                <div class="social-button">
+                    <i class="bi bi-google"></i>
+                </div>
+                <div class="social-button">
+                    <i class="bi bi-facebook"></i>
+                </div>
+                <div class="social-button">
+                    <i class="bi bi-twitter"></i>
+                </div>
+            </div>
+
+            <div class="signup-link">
+                Don't have an account? <a routerLink="/register">Sign UP</a>
+            </div>
+          </div>
+    </div>
+
+

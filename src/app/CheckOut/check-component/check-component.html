@@ -1,0 +1,78 @@
+<div class="checkout-container container mt-5 mb-5">
+  <!-- Header -->
+  <div class="checkout-header text-center mb-4">
+    <h2 class="m-0 fw-bold">🛍️ Checkout Order</h2>
+  </div>
+
+  <div class="container-fluid p-4 shadow-lg rounded bg-light">
+    <div class="row">
+      <!-- Left Column - Cart Details -->
+      <div class="col-md-8 mb-4">
+        <div class="section-title fw-bold mb-3">🧾 Order Summary</div>
+
+        <div class="cart-item d-flex align-items-center mb-3 p-3 border rounded bg-white shadow-sm" *ngFor="let item of cart">
+          <div class="cart-img me-3">
+            <img [src]="getImageUrl(item.product.imageUrl)" alt="{{item.product.name}}" width="80" height="80" class="rounded" />
+          </div>
+          <div class="cart-details">
+            <h5 class="fw-bold">{{ item.product.name }}</h5>
+            <p class="m-0 text-muted">{{ item.product.price }} EGP x {{ item.quantity }}</p>
+            <strong class="text-dark">Total: {{ item.product.price * item.quantity }} EGP</strong>
+          </div>
+        </div>
+
+        <div class="subtotal d-flex justify-content-between align-items-center mt-4 p-3 bg-dark text-white rounded">
+          <span class="subtotal-label fw-bold">Total Price</span>
+          <span class="subtotal-price fw-bold">{{ total }} EGP</span>
+        </div>
+      </div>
+
+      <!-- Right Column - Checkout Form -->
+      <div class="col-md-4">
+        <div class="section-title fw-bold mb-3">🚚 Delivery Address</div>
+
+        <form [formGroup]="checkOutForm" (ngSubmit)="submitOrder()" class="p-3 bg-white rounded shadow-sm">
+          <!-- Full Name -->
+          <div class="form-group mb-3">
+            <label for="name" class="fw-semibold"> Full Name</label>
+            <input id="name" formControlName="name" class="form-control" />
+            <small *ngIf="checkOutForm.get('name')?.invalid && checkOutForm.get('name')?.touched"
+                   class="text-danger">Full Name is required.</small>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group mb-3">
+            <label for="emai" class="fw-semibold"> Email</label>
+            <input id="email" formControlName="email" class="form-control" />
+            <small *ngIf="checkOutForm.get('email')?.hasError('required') && checkOutForm.get('email')?.touched"
+                   class="text-danger">Email is required.</small>
+            <small *ngIf="checkOutForm.get('email')?.hasError('email') && checkOutForm.get('email')?.touched"
+                   class="text-danger"> Enter a valid email.</small>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group mb-3">
+            <label for="phone" class="fw-semibold">Phone</label>
+            <input id="phone" formControlName="phone" class="form-control" />
+            <small *ngIf="checkOutForm.get('phone')?.hasError('required') && checkOutForm.get('phone')?.touched"
+                   class="text-danger">Phone is required.</small>
+            <small *ngIf="checkOutForm.get('phone')?.hasError('pattern') && checkOutForm.get('phone')?.touched"
+                   class="text-danger">Phone must be exactly 11 digits.</small>
+          </div>
+
+          <!-- Address -->
+          <div class="form-group mb-3">
+            <label for="address" class="fw-semibold"> Address</label>
+            <input id="address" formControlName="address" class="form-control" />
+            <small *ngIf="checkOutForm.get('address')?.invalid && checkOutForm.get('address')?.touched"
+                   class="text-danger"> Address is required.</small>
+          </div>
+
+          <button type="submit" class="btn btn-dark w-100 py-2 mt-2">
+             Confirm Order
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

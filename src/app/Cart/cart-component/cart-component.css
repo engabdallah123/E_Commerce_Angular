@@ -1,0 +1,122 @@
+
+img {
+  object-fit: cover;
+}
+
+.card {
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+button.btn-link {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+  border-bottom: 1px solid #ddd;
+  gap: 30px;
+}
+
+.cart-img img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.cart-details {
+  flex: 2;
+  margin-left: 15px;
+}
+
+.cart-details h4 {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+}
+
+.cart-details p {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 3px 0 0;
+}
+
+.cart-quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-quantity button {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.cart-quantity span {
+  min-width: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.cart-price {
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 80px;
+  text-align: right;
+}
+
+.cart-remove button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+.cart-remove button:hover {
+  color: red;
+}
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+}
+.descripe {
+  width: 400px;
+}
+@media (max-width: 768px) {
+  .descripe {
+    width: 250px;
+  }
+}
+@media (max-width: 768px) {
+  .summary {
+    margin-top: 20px;
+  }
+}
+.back {
+    color: #777;
+    display: block;
+    width: fit-content;
+    margin: 30px 0 0 0;
+    transition: 0.3s;
+}
+.back:hover {
+    color: black;
+
+}
+.back i {
+ margin-right: 3px;
+ font-weight: bold;
+}
+
+

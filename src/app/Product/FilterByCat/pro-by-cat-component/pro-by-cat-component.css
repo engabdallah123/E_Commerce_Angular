@@ -1,0 +1,188 @@
+a {
+  color: #198754;
+}
+.category-hero {
+  position: relative;
+  width: 100%;
+  height: 650px; /* تقدر تغير الارتفاع حسب ذوقك */
+  overflow: hidden;
+  border-radius: 20px;
+  margin-top: 89px;
+  clip-path: ellipse(150% 87% at 93% 13%); /* الخلفية اللي طلبتها */
+}
+
+/* الصورة */
+.category-hero .hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: zoomIn 12s ease-in-out infinite alternate;
+}
+
+/* Overlay */
+.category-hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgb(0 0 0 / 66%)),
+            radial-gradient(77.36% 256.97% at 77.36% 57.52%, rgba(238, 239, 175, 0.3) 0%, rgba(195, 227, 250, 0.3) 100% 100%);
+}
+
+/* النص فوق الصورة */
+.category-hero .hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.category-hero .hero-text h2 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.category-hero .hero-text p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Animation للصورة */
+@keyframes zoomIn {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+
+.container {
+  margin-top: 30px;
+}
+.card {
+ position: relative;
+ overflow: hidden;
+  transition: 0.3s;
+
+}
+.card .image {
+  padding-top: 13px;
+  transition: 0.3s;
+   cursor: pointer;
+}
+.card:hover .image {
+  transform: scale(1.1);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+.card .brand {
+    position: absolute;
+    background-color: #be6d6d;
+   color: white;
+    font-size: 10px;
+    padding: 3px 5px;
+    border-radius: 23px;
+    top: 5px;
+    left: 5px;
+    z-index: 2;
+}
+.card .cat-name {
+font-size: 11px;
+    color: #777;
+}
+.card .card-title {
+ margin: 5px 0;
+ font-size: 18px;
+}
+.card .rate {
+  color: #777;
+}
+.card .star {
+    color: #ffe234;
+    margin-right: 4px;
+}
+.card .price {
+color: #198754 !important;
+  font-size: 20px;
+  font-weight: bold;
+}
+.card .cart-icon,
+.card .love-icon {
+  color: green;
+    background-color: #1987642b;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 50%;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+}
+.card .cart-icon {
+ margin-left: 5px;
+
+}
+.card .cart-icon::before,
+.card .love-icon::before {
+  position: absolute;
+  width: 63px;
+    top: -29px;
+    font-size: 9px;
+    font-weight: bold;
+    background-color: #198754;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: 0.3s;
+
+}
+.card .cart-icon::after,
+.card .love-icon::after {
+ position: absolute;
+ content: "";
+ border-width: 8px;
+ border-style: solid;
+ border-color: #198754 transparent transparent transparent;
+ top: -12px;
+  opacity: 0;
+    transition: 0.3s;
+}
+.card .love-icon::before {
+  content: "Add To Love";
+  left: -23px;
+
+}
+.card .cart-icon::before {
+ content: "Add To Cart";
+ left: -22px;
+
+}
+.card .cart-icon:hover,
+.card .love-icon:hover {
+  background-color: #198754;
+  color: white;
+}
+.card .cart-icon:hover a,
+.card .love-icon:hover a {
+color: white;
+}
+.card .cart-icon:hover::before,
+.card .cart-icon:hover::after {
+  opacity: 1;
+}
+.card .love-icon:hover::before,
+.card .love-icon:hover::after {
+  opacity: 1;
+}

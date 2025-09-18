@@ -1,0 +1,75 @@
+
+<div class="container" style="margin-top: 190px;margin-bottom:50px">
+  <div class="row">
+    <!-- Cart Items -->
+    <div class="col-md-8">
+      <div class=" d-flex justify-content-between align-items-center">
+        <h3>Shopping Cart 🛒</h3>
+        <p>{{ cart.length }} items</p>
+       </div>
+      <hr />
+
+  <div class="cart-item" *ngFor="let item of cart; let i = index">
+
+  <div class="cart-img">
+    <img [src]="getImageUrl(item.product.imageUrl)" alt="{{item.product.name}}" />
+  </div>
+
+
+  <div class="cart-details">
+    <h4>{{ item.product.name }}</h4>
+    <p class="descripe" style="width: 260px;">{{ item.product.description }}</p>
+  </div>
+
+
+  <div class="cart-quantity">
+    <button (click)="changeQuantity(i, item.quantity - 1)" [disabled]="item.quantity <= 1">-</button>
+    <span>{{ item.quantity }}</span>
+    <button (click)="changeQuantity(i, item.quantity + 1)">+</button>
+  </div>
+
+
+  <div class="cart-price">
+    {{ item.product.price * item.quantity }} EGP
+  </div>
+
+
+  <div class="cart-remove">
+    <button (click)="removeItem(i)" class="fs-4">×</button>
+  </div>
+</div>
+<a routerLink="/product" class="back"><i class="bi bi-arrow-left"></i>Go To Shop</a>
+ </div>
+
+    <!-- Summary -->
+    <div class="summary col-md-4">
+      <div class="card p-3 bg-light">
+        <h5>Summary</h5>
+        <hr />
+        <div class="d-flex justify-content-between">
+          <span>ITEMS {{ totalItems }}</span>
+          <span>EGP {{ total | number: '1.2-2' }}</span>
+        </div>
+        <div class="d-flex justify-content-between mt-2">
+          <span>SHIPPING</span>
+          <select class="form-control w-50">
+            <option>Free Shipping</option>
+            <option>Standard Delivery - EGP5.00</option>
+            <option>Express Delivery - EGP10.00</option>
+          </select>
+        </div>
+        <div class="mt-3">
+          <span>GIVE CODE</span>
+          <input type="text" class="form-control mt-1" placeholder="Enter your code" />
+        </div>
+        <hr />
+        <div class="d-flex justify-content-between">
+          <strong>TOTAL PRICE</strong>
+          <strong>EGP {{ total | number: '1.2-2' }}</strong>
+        </div>
+        <button class="btn btn-dark btn-block mt-3" routerLink="/checkout" [disabled]="cart.length == 0">CHECKOUT</button>
+        <button class="btn btn-danger btn-block mt-2" (click)="clearAllItem()"  [disabled]="cart.length == 0">CLEAR CART</button>
+      </div>
+    </div>
+  </div>
+</div>
