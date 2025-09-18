@@ -55,7 +55,7 @@ It provides the core features of an online store such as product browsing, filte
 ## 🎥 Demo Video
 
 A detailed demo and walkthrough of the project is available on LinkedIn:
-🔗 Watch the video
+🔗 [Watch the video]()
 
 ---
 
@@ -80,13 +80,6 @@ npm install
 # 4. Run the project
 ng serve -o
 
-# 5. Configure API
-- Make sure the Angular app points to the backend API URL in `environment.ts`:
-```ts
-export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:5104/api'
-};
 
 
 
